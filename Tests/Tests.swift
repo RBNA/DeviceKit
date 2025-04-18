@@ -83,6 +83,7 @@ class DeviceKitTests: XCTestCase {
     XCTAssertEqual(Device.iPadMini4.cpu, Device.CPU.a8)
     XCTAssertEqual(Device.iPadMini5.cpu, Device.CPU.a12Bionic)
     XCTAssertEqual(Device.iPadMini6.cpu, Device.CPU.a15Bionic)
+    XCTAssertEqual(Device.iPadMiniA17Pro.cpu, Device.CPU.a17Pro)
     XCTAssertEqual(Device.iPadPro11Inch.cpu, Device.CPU.a12XBionic)
     XCTAssertEqual(Device.iPadPro11Inch2.cpu, Device.CPU.a12ZBionic)
     XCTAssertEqual(Device.iPadPro11Inch3.cpu, Device.CPU.m1)
@@ -455,7 +456,9 @@ class DeviceKitTests: XCTestCase {
       .iPhone14Plus,
       .iPhone14ProMax,
       .iPhone15Plus,
-      .iPhone15ProMax
+      .iPhone15ProMax,
+      .iPhone16Plus,
+      .iPhone16ProMax,
     ])
   }
 
@@ -471,6 +474,8 @@ class DeviceKitTests: XCTestCase {
       .iPhone14ProMax,
       .iPhone15Pro,
       .iPhone15ProMax,
+      .iPhone16Pro,
+      .iPhone16ProMax,
       .iPadPro9Inch,
       .iPadPro12Inch,
       .iPadPro12Inch2,
@@ -482,7 +487,9 @@ class DeviceKitTests: XCTestCase {
       .iPadPro11Inch3,
       .iPadPro12Inch5,
       .iPadPro11Inch4,
-      .iPadPro12Inch6
+      .iPadPro12Inch6,
+      .iPadPro11M4,
+      .iPadPro13M4,
     ])
   }
 
@@ -509,7 +516,11 @@ class DeviceKitTests: XCTestCase {
       .iPhone15,
       .iPhone15Plus,
       .iPhone15Pro,
-      .iPhone15ProMax
+      .iPhone15ProMax,
+      .iPhone16,
+      .iPhone16Plus,
+      .iPhone16Pro,
+      .iPhone16ProMax,
     ]
     for device in Device.allRealDevices {
       XCTAssertTrue(device.hasDynamicIsland == device.isOneOf(dynamicIslandDevices), "testHasDynamicIsland failed for \(device.description)")
@@ -535,16 +546,29 @@ class DeviceKitTests: XCTestCase {
       .iPhone15Plus,
       .iPhone15Pro,
       .iPhone15ProMax,
+      .iPhone16,
+      .iPhone16Plus,
+      .iPhone16Pro,
+      .iPhone16ProMax,
+      .iPhone16e,
       .iPad10,
+      .iPadA16,
       .iPadAir5,
+      .iPadAir11M2,
+      .iPadAir13M2,
+      .iPadAir11M3,
+      .iPadAir13M3,
       .iPadMini6,
+      .iPadMiniA17Pro,
       .iPadPro11Inch3,
       .iPadPro12Inch5,
       .iPadPro11Inch4,
-      .iPadPro12Inch6
+      .iPadPro12Inch6,
+      .iPadPro11M4,
+      .iPadPro13M4,
     ]
     for device in Device.allRealDevices {
-      XCTAssertTrue(device.has5gSupport == device.isOneOf(has5gDevices), "testHasDynamicIsland failed for \(device.description)")
+      XCTAssertTrue(device.has5gSupport == device.isOneOf(has5gDevices), "testHas5gSupport failed for \(device.description)")
     }
   }
 
@@ -618,12 +642,16 @@ class DeviceKitTests: XCTestCase {
       .iPhone14ProMax,
       .iPhone15Pro,
       .iPhone15ProMax,
+      .iPhone16Pro,
+      .iPhone16ProMax,
       .iPadPro11Inch2,
       .iPadPro12Inch4,
       .iPadPro11Inch3,
       .iPadPro12Inch5,
       .iPadPro11Inch4,
-      .iPadPro12Inch6
+      .iPadPro12Inch6,
+      .iPadPro11M4,
+      .iPadPro13M4,
     ]
     for device in Device.allRealDevices {
       XCTAssertTrue(device.hasLidarSensor == device.isOneOf(lidarDevices), "testLidarValues failed for \(device.description)")
@@ -636,10 +664,21 @@ class DeviceKitTests: XCTestCase {
       .iPhone15Plus,
       .iPhone15Pro,
       .iPhone15ProMax,
+      .iPhone16,
+      .iPhone16Plus,
+      .iPhone16Pro,
+      .iPhone16ProMax,
+      .iPhone16e,
       .iPad10,
+      .iPadA16,
       .iPadAir4,
       .iPadAir5,
+      .iPadAir11M2,
+      .iPadAir13M2,
+      .iPadAir11M3,
+      .iPadAir13M3,
       .iPadMini6,
+      .iPadMiniA17Pro,
       .iPadPro11Inch,
       .iPadPro12Inch3,
       .iPadPro11Inch2,
@@ -647,7 +686,9 @@ class DeviceKitTests: XCTestCase {
       .iPadPro11Inch3,
       .iPadPro12Inch5,
       .iPadPro11Inch4,
-      .iPadPro12Inch6
+      .iPadPro12Inch6,
+      .iPadPro11M4,
+      .iPadPro13M4,
     ]
     for device in Device.allRealDevices {
       XCTAssertTrue(device.hasUSBCConnectivity == device.isOneOf(usbCDevices), "testHasUSBCConnectivity failed for \(device.description)")

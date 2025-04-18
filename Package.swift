@@ -15,8 +15,8 @@ import PackageDescription
 let package = Package(
     name: "DeviceKit",
     platforms: [
-        .iOS(.v12),
-        .tvOS(.v12),
+        .iOS(.v13),
+        .tvOS(.v13),
         .watchOS(.v4),
         .visionOS(.v1)
     ],
@@ -34,13 +34,13 @@ let package = Package(
             name: "DeviceKit",
             dependencies: [],
             path: "Source",
-            resources: [.copy("PrivacyInfo.xcprivacy")]
+            resources: [.process("PrivacyInfo.xcprivacy")]
         ),
         .testTarget(
             name: "DeviceKitTests",
             dependencies: ["DeviceKit"],
             path: "Tests",
-            resources: [.copy("PrivacyInfo.xcprivacy")]
+            resources: [.process("../Source/PrivacyInfo.xcprivacy")]
         )
     ],
     swiftLanguageVersions: [.v5]
